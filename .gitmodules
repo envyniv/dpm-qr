@@ -1,0 +1,6 @@
+[submodule "js/jsQR"]
+	path = js/jsQR
+	url = https://github.com/cozmo/jsQR
+[submodule "js/qrcode-with-logos"]
+	path = js/qrcode-with-logos
+	url = https://github.com/zxpsuper/qrcode-with-logos

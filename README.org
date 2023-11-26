@@ -1,0 +1,36 @@
+#+title: DPM QR Editor
+
+_An HTML5 + ECMAScript 6 QR Code Editor for the "The Denpa Men" Game Series._
+
+* Planned features
+
+** Four modes of operation
+*** TODO Denpa Men
+*** TODO Denpa Men 2
+*** TODO Denpa Men 3
+*** TODO Plain Text
+Basically just a JSON file in QR format. Can be enforced for all games
+
+** Automatic mode switching
+Plain text would be a toggle since no game uses it
+*** TODO catalogue features based on game
+
+** Flexible preview
+*** TODO Assets
+- If tropic allows us, we could use their picrew assets for the preview
+- The scroll/paper svg comes from [[https://github.com/envyniv/freedpm][freedpm]]
+*** TODO Game icon for QR Differentiation
+The images should be embed at the center of the QRCode, and clearly visible.
+
+** Encoded Data panel
+A simple Textbox where we can show what has been put into the QRCode.
+
+* Progress Report
+UI is almost complete
+
+* Resources used
+- the [[https://github.com/cozmo/jsQR][jsQR]] library for reading QRCodes from images and camera
+- the [[https://github.com/zxpsuper/qrcode-with-logos][QR Code With Logos]] library for generating QRCodes
+- the [[https://storage.googleapis.com/google-code-archive-source/v2/code.google.com/denpa-qr-code-editor/source-archive.zip][Denpa QR Code Editor]] source code for reference in implementing DPM1 QR generation
+
+

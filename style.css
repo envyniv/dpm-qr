@@ -1,0 +1,215 @@
+:root {
+    /* https://www.w3schools.com/cssref/css_colors.php */
+    --popup-bgclr: midnightblue;
+    --popup-outline: mediumslateblue;
+    --popup-bgclr2: darkslategrey;
+}
+
+@font-face {
+    font-family: CameronSans;
+    src: url("assets/fonts/CameronSansBold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: CameronSans;
+    src: url("assets/fonts/CameronSansExtraBold.ttf") format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: CameronSans;
+    src: url("assets/fonts/CameronSansBoldOblique.ttf") format('truetype');
+    font-style: italic;
+}
+
+html {
+    background-image: linear-gradient(white, transparent), url("assets/skyblue.png"); /* W3C */
+    font-family: CameronSans;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+tr.center {
+    text-align: center;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 17px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: indigo;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 1em;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 2px;
+  bottom: 2px;
+  background-color: gold;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: orchid;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px orchid;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(13px);
+  -ms-transform: translateX(13px);
+  transform: translateX(13px);
+}
+
+.vcont {
+
+}
+
+.hcont {
+
+}
+
+h1 {
+    text-align: center;
+}
+
+h1 > img {
+    width: 25em;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
+
+input.button, button {
+    background-image: linear-gradient(aliceblue, aqua);
+    border-color: deepskyblue;
+    border-radius: 2em;
+    border-width: 0.3em;
+    font-family: CameronSans;
+    font-weight: bold;
+    /*-webkit-text-stroke: 2px darkblue;*/
+    text-shadow: -1px -1px 0 darkblue, 1px -1px 0 darkblue, -1px 1px 0 darkblue, 1px 1px 0 darkblue;
+    color:white;
+    /*outline: 5em teal;*/
+}
+
+input.button[disabled], button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+input[type="number"], input[type="text"], select {
+    background-color: bisque;
+    border-width: 0px;
+    border-radius: .3em;
+    font-family: CameronSans;
+    font-size: 1.25em;
+}
+
+input[type="number"] {
+    width: 5em;
+}
+
+form {
+    position: absolute;
+    width: relative;
+}
+
+fieldset {
+    position: relative;
+}
+
+fieldset > legend {
+    font-family: CameronSans;
+    font-weight: bold;
+}
+
+fieldset.denpa {
+    padding-top: 4em;
+    padding-bottom: 2em;
+    padding-left: 5em;
+    padding-right: 4em;
+    background-image: url("assets/paper.svg");
+    background-repeat: no-repeat;
+    background-position: (left top - 12px);
+    background-size: cover;
+    overflow: auto;
+    border: 0px;
+    display: table;
+}
+
+fieldset.denpa > legend {
+    color: transparent;
+}
+
+tr > td {
+    padding-bottom: 1.18em;
+}
+
+fieldset.settings {
+    color: white;
+    /*
+      background-image: url("assets/menu.svg");
+    //content-left: 60px;
+     */
+    background: repeating-linear-gradient(
+	0deg,
+	var(--popup-bgclr),
+	var(--popup-bgclr) 5px,
+	var(--popup-bgclr2) 5px,
+	var(--popup-bgclr2) 10px
+    );
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--popup-outline);
+    border-radius: 40px;
+    text-align: center;
+    font-weight: normal;
+}
+
+fieldset.settings label {
+    font-style: italic;
+}
+
+fieldset.settings hr {
+    border-color: var(--popup-outline);
+}
+
+fieldset.settings > legend {
+    padding-left: 7em;
+    padding-right: 7em;
+    margin: 0 auto;
+    background-color: var(--popup-outline);
+    /*background-radius: 5px;*/
+    border-radius: 1em;
+}
+
