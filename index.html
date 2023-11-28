@@ -4,25 +4,51 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.gif" />
     <link rel="stylesheet" href="style.css" />
     <title>Denpa Designer</title>
-    <script type="text-x-plain" src="js/page.js"></script>
-    <script type="text/x-plain" src="js/dpm.js"></script>
-    <script type="text/x-plain" src="js/dpm2.js"></script>
-    <script type="text/x-plain" src="js/dpm3.js"></script>
+    <script type="text/javascript" src="js/page.js"></script>
   </head>
   <body>
     <h1><img src="assets/logo.png" alt="The Denpa Men Designer"/></h1>
+    <div id="setbut"></div>
     <div class="hcont">
       <form action="php/main.php" target="output">
+	
+	<fieldset class="settings" id="settings">
+	  <legend>Settings</legend>
+	  <label for="mode">Output</label>
+	  <br />
+	  <p>
+	    This defines what the data encoded in the QRCode should be like.
+	    <br />
+	    Most homebrew applications will have a easier time using JSON.
+	    <br />
+	    The official games use Binary.
+	  </p>
+	  <br />
+	  <input type="radio" name="mode" id="modebin" value="game" checked="true" />
+	  <label for="modebin">Binary</label>
+	  <input type="radio" name="mode" id="modetext" value="text"/>
+	  <label for="modetext">JSON</label>
+	  
+	  <hr />
+
+	  <noscript>
+	    <p>You don't have javascript enabled.  Only PHP Mode is available.</p>
+	    <hr />
+	  </noscript>
+	  <div id="opsel"></div>
+	  <br /><br />
+	  <input class="button" type="submit" value="Generate"/>
+	</fieldset>
+	
 	<fieldset class="denpa">
 	  <legend>Denpa Man</legend>
 	  
-	  <!--<label for="name">Name</label>-->
 	  <table>
 	    <tr>
 	      <td>
 		<input type="text" name="name" value="Takeshi"/>
 	      </td>
-	      <td>
+	      <td class="level">
 		<label>Lv. 1</label>
 	      </td>
 	    </tr>
@@ -106,74 +132,99 @@
 	  </table>
 	</fieldset>
 
-	<fieldset class="settings">
-	  <legend>Settings</legend>
-	  <label for="mode">Output</label>
-	  <br />
-	  <p>
-	    This defines what the data encoded in the QRCode should be like.
-	    <br />
-	    Most homebrew applications will have a easier time using JSON.
-	    <br />
-	    The official games use Binary.
-	  </p>
-	  <br />
-	  <input type="radio" name="mode" id="modebin" value="game" checked="true" />
-	  <label for="modebin">Binary</label>
-	  <input type="radio" name="mode" id="modetext" value="text"/>
-	  <label for="modetext">JSON</label>
+	<fieldset class="cosmetic" id="cosmetic">
+	  <legend>Cosmetic Parameters</legend>
+	  <table>
+	    <tr>
+	      <td>
+		<label>Eyes</label>
+	      </td>
+	      <td>
+		<select name="eyes">
+		  <option value="0">Dots</option>
+		</select>
+	      </td>
+	    </tr>
 
-	  
-	  <hr />
-
-	  <noscript>
-	    <p>You don't have javascript enabled.  Only PHP Mode is available.</p>
-	    <hr />
-	  </noscript>
-	  <section>
+	    <tr>
+	      <td>
+		<label>Eyebrows</label>
+	      </td>
+	      <td>
+		<select name="brows">
+		  <option value="0">None</option>
+		</select>
+	      </td>
+	    </tr>
 	    
-	    <script type="text/javascript" id="opsel">
-	      var self = document.getElementById( "opsel" );
-	      const music_tags = `
-	      <hr />
-	      <label class="switch" id="mus">
-		<input type="checkbox" name="sfx"/>
-		<span class="slider"></span>
-	      </label>
-	      <label for="mus">Music</label>
-	      
-	      <label class="switch" id="sfx">
-		<input type="checkbox" name="sfx" checked="true" />
-		<span class="slider"></span>
-	      </label>
-	      <label for="sfx">SFX</label>`;
-	      window.onload = () => {
-	      if (window.location.href.indexOf(".github.io") > -1) {
-	      // github pages does not support PHP
-	      self.parentNode.innerHTML = `
-	      <p>GitHub Pages detected. PHP disabled.</p>
-	      ` + music_tags;
-	      return;
-	      }
-	      self.parentNode.innerHTML = `
-	      <label>Mode of Operation</label>
-	      <p>
-		This specifies whether the generation should happen<br />
-		on your machine or the one hosting this webpage. <br />
-		If unsure, leave as-is.
-	      </p>
-	      <input type="radio" id="phpmode" name="opmode" value="php"/>
-	      <label for="phpmode">Server</label>
-	      <input type="radio" name="opmode" value="js" id="jsmode" checked="true"/>
-	      <label for="jsmode">Browser</label>
-	      ` + music_tags;
-	      }
-	    </script>
-	  </section>
-	  <br /><br />
-	  <input class="button" type="submit" value="Force Reload"/>
+	    <tr>
+	      <td>
+		<label>Nose</label>
+	      </td>
+	      <td>
+		<select name="brows">
+		  <option value="0">Big</option>
+		</select>
+	      </td>
+	    </tr>
+
+	    <tr>
+	      <td>
+		<label>Cheeks</label>
+	      </td>
+	      <td>
+		<select name="cheeks">
+		  <option value="0">None</option>
+		</select>
+	      </td>
+	    </tr>
+
+	    <tr>
+	      <td>
+		<label>Mask</label>
+	      </td>
+	      <td>
+		<select name="mask">
+		  <option value="0">None</option>
+		</select>
+	      </td>
+	    </tr>
+
+	    <tr>
+	      <td>
+		<label>Hair</label>
+	      </td>
+	      <td>
+		<select name="hair">
+		  <option value="0">None</option>
+		</select>
+	      </td>
+	    </tr>
+
+	    <tr>
+	      <td>
+		<label>Hair Color</label>
+	      </td>
+	      <td>
+		<select name="hair">
+		  <option value="0">Black</option>
+		</select>
+	      </td>
+	    </tr>
+
+	    <tr>
+	      <td>
+		<label>Head Shape</label>
+	      </td>
+	      <td>
+		<select name="head">
+		  <option value="0">Round</option>
+		</select>
+	      </td>
+	    </tr>
+	    
+	  </table>
 	</fieldset>
-	
       </form>
 
       <div class="vcont">

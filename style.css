@@ -23,10 +23,13 @@
 }
 
 html {
-    background-image: linear-gradient(white, transparent), url("assets/skyblue.png"); /* W3C */
     font-family: CameronSans;
+    background-image: linear-gradient(white, transparent), url("assets/skyblue.png"); /* W3C */
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
+    position: sticky;
+    
     height: 100%;
 }
 
@@ -112,7 +115,7 @@ h1 > img {
 input.button, button {
     background-image: linear-gradient(aliceblue, aqua);
     border-color: deepskyblue;
-    border-radius: 2em;
+    border-radius: 1.5em;
     border-width: 0.3em;
     font-family: CameronSans;
     font-weight: bold;
@@ -120,6 +123,11 @@ input.button, button {
     text-shadow: -1px -1px 0 darkblue, 1px -1px 0 darkblue, -1px 1px 0 darkblue, 1px 1px 0 darkblue;
     color:white;
     /*outline: 5em teal;*/
+}
+
+input.button:active, button:active {
+    background-image: linear-gradient(aqua, aliceblue);
+    color:lightgrey
 }
 
 input.button[disabled], button[disabled] {
@@ -164,7 +172,6 @@ fieldset.denpa {
     background-size: cover;
     overflow: auto;
     border: 0px;
-    display: table;
 }
 
 fieldset.denpa > legend {
@@ -177,10 +184,6 @@ tr > td {
 
 fieldset.settings {
     color: white;
-    /*
-      background-image: url("assets/menu.svg");
-    //content-left: 60px;
-     */
     background: repeating-linear-gradient(
 	0deg,
 	var(--popup-bgclr),
@@ -211,5 +214,15 @@ fieldset.settings > legend {
     background-color: var(--popup-outline);
     /*background-radius: 5px;*/
     border-radius: 1em;
+    font-size: 1.25em;
 }
 
+fieldset.cosmetic {
+    display: block;
+    border-width: 0px;
+    border-color: transparent;
+}
+
+.level {
+    text-align: right;
+}
